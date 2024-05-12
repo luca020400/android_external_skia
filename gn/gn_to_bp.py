@@ -276,6 +276,7 @@ cc_defaults {
     target: {
       android: {
         shared_libs: [
+            "libavif",
             "libheif",
         ],
       },
@@ -535,6 +536,11 @@ def generate_args(target_os, enable_gpu, renderengine = False):
     d['skia_use_jpeg_gainmaps'] = 'true'
   else:
     d['skia_use_libheif']  = 'false'
+
+  if target_os == '"android"' and not renderengine:
+    d['skia_use_libavif']  = 'true'
+  else:
+    d['skia_use_libavif']  = 'false'
 
   if renderengine:
     d['skia_use_libpng_decode'] = 'false'

@@ -1544,6 +1544,7 @@ cc_library_static {
       android: {
         srcs: [
           "src/android/SkAndroidFrameworkPerfettoStaticStorage.cpp",
+          "src/codec/SkAvifCodec.cpp",
           "src/codec/SkHeifCodec.cpp",
           "src/codec/SkJpegMultiPicture.cpp",
           "src/codec/SkJpegSegmentScan.cpp",
@@ -1987,6 +1988,7 @@ cc_defaults {
     target: {
       android: {
         shared_libs: [
+            "libavif",
             "libheif",
         ],
       },
